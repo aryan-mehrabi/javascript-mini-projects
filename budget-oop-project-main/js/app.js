@@ -19,7 +19,21 @@ expSubmit.addEventListener("click", function(e){
         feedback.classList.add("showItem");
         feedback.innerHTML = "No Empty Field or Negative Value."
         setTimeout(function() {feedback.classList.remove("showItem");}, 5000)
-    } else {expContainer.insertAdjacentHTML("beforeend", `<div class="expense"><div class="expense-item d-flex justify-content-between align-items-baseline"><h6 class="expense-title mb-0 text-uppercase list-item">-` + expTitle.value + `</h6><h5 class="expense-amount mb-0 list-item">` + expValue.value + `</h5><div class="expense-icons list-item"><a href="#" class="edit-icon mx-2" data-id="${expenses.length}"><i class="fas fa-edit"></i></a><a href="#" class="delete-icon" data-id="${expenses.length}"><i class="fas fa-trash"></i></a></div></div></div>`);
+    } else {expContainer.insertAdjacentHTML("beforeend",
+    `<div class="expense">
+        <div class="expense-item d-flex justify-content-between align-items-baseline">
+            <h6 class="expense-title mb-0 text-uppercase list-item">-${expTitle.value}</h6>
+            <h5 class="expense-amount mb-0 list-item">${expValue.value}</h5>
+            <div class="expense-icons list-item">
+                <a href="#" class="edit-icon mx-2" data-id="${expenses.length}">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="delete-icon" data-id="${expenses.length}">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+        </div>
+    </div>`);
             let fas =  document.querySelectorAll(".fas");
             fas.forEach(function(item){
                 item.addEventListener("click", function(e){
